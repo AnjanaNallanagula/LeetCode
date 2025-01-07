@@ -1,0 +1,5 @@
+import pandas as pd
+
+def findHeavyAnimals(animals: pd.DataFrame) -> pd.DataFrame:
+    data = animals.query('weight > 100').sort_values(by="weight", ascending=False).drop(["species", "age", "weight"], axis=1)
+    return data
