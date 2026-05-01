@@ -1,27 +1,18 @@
 class Solution:
-    def minPathSum1(self, n, m, mat, grid):
-        if (n == 0 or m == 0):
-            return 0
-        if (mat[n][m] != float("inf")):
-            return mat[n][m]
-        if (n == 1):
-            mat[n][m] = grid[n - 1][m - 1] + self.minPathSum1(n, m - 1, mat, grid)
-            return mat[n][m]
-        if (m == 1):
-            mat[n][m] = grid[n - 1][m - 1] + self.minPathSum1(n - 1, m, mat, grid)
-            return mat[n][m]
-        
-        mat[n][m] = grid[n - 1][m - 1] + min(self.minPathSum1(n - 1, m, mat, grid), self.minPathSum1(n, m - 1, mat, grid))
-
-        return mat[n][m]
-        
     def minPathSum(self, grid: List[List[int]]) -> int:
         n = len(grid)
         m = len(grid[0])
-        mat = [[float("inf") for j in range(m + 1)] for i in range(n + 1)]
+        mat = [[0 for j in range(m)] for i in range(n)]
+        mat[0][0] = grid[0][0]
 
-        self.minPathSum1(n, m, mat, grid)
-
-        print(mat)
+        for i in range(1, n):
+            mat[i][0] = grid[i][0] + mat[i - 1][0]
         
-        return mat[n][m]
+        for j in range(1, m):
+            mat[0][j] = grid[0][j] + mat[0][j - 1]
+        
+        for i in range(1, n):
+            for j in range(1, m):
+                mat[i][j] = grid[i][j] + min(mat[i - 1][j], mat[i][j - 1])
+        
+        return mat[n - 1][m - 1]
