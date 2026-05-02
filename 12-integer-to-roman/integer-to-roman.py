@@ -7,6 +7,6 @@ class Solution:
             if (num >= d[i]):
                 q = num // d[i]
                 s = s + (q * i)
-                num = num - (q * d[i])
+                num %= d[i]
         
         return s
