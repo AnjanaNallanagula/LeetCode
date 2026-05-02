@@ -24,8 +24,6 @@ class Solution:
 
         d = k - ls[index]
 
-        print(d)
-
         d1 = nums[index] + d
 
         return d1
