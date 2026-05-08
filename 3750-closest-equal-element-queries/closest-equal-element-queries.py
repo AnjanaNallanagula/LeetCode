@@ -55,8 +55,6 @@ class Solution:
                 l = self.binary_search_lower_bound(d[target], i)
                 r = self.binary_search_upper_bound(d[target], i)
 
-                print((l, r))
-
                 min1 = float("inf")
 
                 if (l != -1):
