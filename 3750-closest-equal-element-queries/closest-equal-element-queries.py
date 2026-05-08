@@ -57,10 +57,8 @@ class Solution:
 
                 min1 = float("inf")
 
-                if (l != -1):
-                    min1 = min(min1, (i - l) % n)
-                if (r != -1):
-                    min1 = min(min1, (r - i) % n)
+                min1 = min(min1, (i - l) % n)
+                min1 = min(min1, (r - i) % n)
                 
                 ls.append(min1)
         
