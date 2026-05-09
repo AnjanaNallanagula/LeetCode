@@ -6,7 +6,7 @@ class Solution:
         ls1 = [1, 1, 2, 4]
         ls2 = [1, 1, 2, 4]
 
-        for i in range(100000):
+        for i in range(4, 100001):
             ls1.append((ls1[-1] + ls1[-2] + ls1[-3]) % MOD)
             ls2.append((ls2[-1] + ls2[-2] + ls2[-3] + ls2[-4]) % MOD)
         
