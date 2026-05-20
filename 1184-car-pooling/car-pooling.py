@@ -5,19 +5,19 @@ class Solution:
         q = []
         heapq.heapify(q)
 
-        for i in range(len(trips)):
-            heapq.heappush(q, (trips[i][1], 1, trips[i][0]))
-            heapq.heappush(q, (trips[i][2], 0, trips[i][0]))
+        for p, s, e in trips:
+            heapq.heappush(q, (s, 1, p))
+            heapq.heappush(q, (e, -1, p))
         
         while (len(q) != 0):
-            time, flag, count = heapq.heappop(q)
-
-            if (flag == 1):
-                if (count > capacity):
-                    return False
-                
-                capacity -= count
+            t, d, p = heapq.heappop(q)
+            
+            if (d == 1):
+                capacity -= p
             else:
-                capacity += count
+                capacity += p
+            
+            if (capacity < 0):
+                return False
         
         return True
