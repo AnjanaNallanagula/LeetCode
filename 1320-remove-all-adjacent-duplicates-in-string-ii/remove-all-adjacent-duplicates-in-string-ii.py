@@ -3,13 +3,12 @@ class Solution:
         stack = []
 
         for i in range(len(s)):
+            count = 1
             if (len(stack) != 0 and s[i] == stack[-1][0]):
-                stack[-1][1] += 1
-
-                if (stack[-1][1] == k):
-                    stack.pop()
-            else:
-                stack.append([s[i], 1])
+                char, d = stack.pop()
+                count += d
+            if (count != k):
+                stack.append((s[i], count))
         
         s1 = ""
 
