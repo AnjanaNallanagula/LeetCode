@@ -1,11 +1,11 @@
 class Solution:
     def titleToNumber(self, columnTitle: str) -> int:
-        n = 0
         p = 0
+        n = 0
 
-        for i in range(len(columnTitle) - 1, -1, -1):
-            d = ord(columnTitle[i]) - ord("A") + 1
-            n += (d * pow(26, p))
+        for i in columnTitle[::-1]:
+            val = ord(i) - 65 + 1
+            n += (26 ** p) * val
             p += 1
         
         return n
