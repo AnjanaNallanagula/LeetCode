@@ -16,9 +16,6 @@ class Solution:
             while (temp != None and temp.val == prev.val):
                 temp = temp.next
             
-            if (prev != temp):
-                prev.next = temp
-            else:
-                temp = temp.next
+            prev.next = temp
         
         return head
