@@ -19,7 +19,7 @@ class Solution:
 
         if (max1[0] == root.val):
             path.pop()
-            max1[0] = max(path) if (path) else -1
+            max1[0] = path[-1] if (path) else -1
     
     def goodNodes(self, root: TreeNode) -> int:
         ls = [0]
