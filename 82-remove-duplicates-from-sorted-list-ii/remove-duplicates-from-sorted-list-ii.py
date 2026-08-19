@@ -18,7 +18,7 @@ class Solution:
                 curr = curr.next
             
             if (prev.next == curr):
-                prev = prev.next
+                prev = curr
             else:
                 prev.next = curr.next
             curr = curr.next
